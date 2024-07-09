@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+  <title>Doctor Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7eeee;
+    }
+
+    header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 20px 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			z-index: 99;
+		}
+		
+
+        .topnav a {
+            position: relative;
+            font-size: 1.1em;
+            color: #0f0f0f;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 40px;
+        }
+
+        .topnav a::after {
+            content: '';
+            left: 0;
+            bottom: -6px;
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #000000;
+            border-radius: 5px;
+            transform-origin: left ,right;
+            transform: scaleX(0);
+            transition: transform .5s;
+        }
+
+        .topnav a:hover:after {
+            transform-origin: right;
+            transform: scaleX(1);
+        }
+
+
+    h1 {
+      color: #090d44;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #profile {
+      background-color: #fff8f8;
+      border: 1px solid #ac9a9a;
+      border-radius: 10px;
+      width: 800px;
+      
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0px 0px 10px #635e5e;
+    }
+    #profile img {
+      float: left;
+      margin-right: 20px;
+      width: 200px;
+      height: 200px;  
+      border-radius: 50%;
+    }
+    #profile h2 {
+      color: #050303;
+      margin-top: 0;
+    }
+    #profile h3 {
+      color: #091a7e;
+      margin-top: 5px;
+      
+    }
+      
+    
+    #profile p {
+      line-height: 1.5;
+      margin-top: 10px;
+    
+    }
+    #profile ul {
+      color: rgb(15, 15, 19);
+      position: relative;
+  left: 187px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+		<nav class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="aboutus.html">About</a>
+        <a href="contact.html">Contact</a>
+		</nav>
+	</header>
+
+
+  <h1>Doctor Profile</h1>
+  <div id="profile">
+    <img src="s.jpg" alt="Doctor Image">
+    <h2>Dr.Giri</h2>
+    <h3>Cardiologist</h3>
+    <p>Dr.Giri is a highly experienced cardiologist with over 10 years of experience in the field. He graduated from XYZ medical college in 2002 and completed his MD at ABC General Hospital.</p>
+		<h3>Contact Information</h3>
+		<ul>
+			<li><strong>Phone:</strong> +91-1234-56-7890</li>
+			<li><strong>Email:</strong> Ghosh@email.com</li>
+			<li><strong>Address:</strong> 123 Main St,Howrah</li>
+		</ul>
+	</div>
+   
+</body>
+</html>
+

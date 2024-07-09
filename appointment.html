@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>Appointment Booking</title>
+	<link rel="stylesheet" href="appointment.css">
+</head>
+<body>
+	<header>
+		<nav class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="aboutus.html">About</a>
+        <a href="contact.html">Contact</a>
+		</nav>
+	</header>
+
+	
+      <b><h2 class="animate-charcter">Book your appointment now & make a strong relation with us.</h2></b>
+	<b><h1>Book an Appointment</h1></b>
+	<form name="submit-to-google-sheet">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+		
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		
+		<label for="phone">Phone:</label>
+		<input type="tel" id="phone" name="phone" required>
+		
+		<label for="service">Service:</label>
+		<select id="service" name="service" required>
+			<option value="Please select">Please select</option>
+			
+			<option value="Cardiology">Cardiology</option>
+			<option value="Dermatology">Dermatology</option>
+			<option value="Diabetology & Endocrinology">Diabetology & Endocrinology</option>
+			<option value="Gastroenterology">Gastroenterology</option>
+			<option value="General Medicine">General Medicine</option>
+			<option value="Gynaecology">Gynaecology</option>
+			<option value="Laboratory & Blood Bank">Laboratory & Blood Bank</option>
+			<option value="Nephrology">Nephrology</option>
+			<option value="Neurology">Neurology</option>
+			<option value="Nutritionist">Nutritionist</option>
+			<option value="Orthopaedics & Traumatology">Orthopaedics & Traumatology</option>
+			<option value="Radiology">Radiology</option>
+			<option value="Urology">Urology</option>
+			<option value="Other">Other</option>
+		</select>
+		
+		<label for="date">Date:</label>
+		<input type="date" id="date" name="date" required>
+		
+		<label for="time">Time:</label>
+		<input type="time" id="time" name="time" required>
+
+		<p><label for="message">Message:</label></p>
+		<textarea id="message" name="message"></textarea>
+
+		<input type="submit" value="Submit">
+		<span id="success"></span>   	
+	</form>
+    <div class="button-container1">
+        <a href="https://chat.whatsapp.com/Cyr1yFrRdMP8pFixmTTF0g" class="button1">Get in touch with our Doctors</a></div>
+	<script>
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbwdmCj5ZN9MUfXVfxErmP18rOhcyW4ogO17olB4eejJYgfjN9DguwDnnjvJq1A-lLxRPQ/exec'
+		const form = document.forms['submit-to-google-sheet']
+		const success = document.getElementById('success');
+		form.addEventListener('submit', e => {
+		  e.preventDefault()
+		  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+			.then(response => {
+			 success.innerHTML="data successfully submit";
+
+			 setTimeout(function()
+			 {
+				success.innerHTML="";
+			 },5000)
+			 form.reset();
+			})
+			.catch(error => console.error('Error!', error.message))
+		})
+	  </script>
+
+</body>
+</html>

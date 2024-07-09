@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ambulance Booking</title>
+	<link rel="stylesheet" href="AMBULANCE.css">
+</head>
+<body>
+	<header>
+	<nav class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="aboutus.html">About</a>
+        <a href="contact.html">Contact</a>
+		</nav>
+	</header>
+    <div class="wrapper nine">
+        <div>
+            <h3 class="rotate">
+                <span>2</span>
+                <span>4</span>
+                <span>*</span>
+                <span>7</span>      
+            </h3>
+        </div>
+    </div>
+	<div class="container">
+		<b><h1>Ambulance Booking</h1></b>
+		<form name="submit-to-google-sheet">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">Email:</label>
+			<input type="text" id="email" name="email" required>
+
+			<label for="phone">Phone:</label>
+			<input type="text" id="phone" name="phone" required>
+
+			<label for="pickup">Pickup Location:</label>
+			<input type="text" id="pickup" name="pickup" required>
+
+			<label for="dropoff">Dropoff Location:</label>
+			<input type="text" id="dropoff" name="dropoff" required>
+
+			<label for="date">Date:</label>
+			<input type="text" id="date" name="date" required>
+
+			<label for="time">Time:</label>
+			<input type="text" id="time" name="time" required>
+
+			<label for="emergency">Emergency?</label>
+			<select id="emergency" name="emergency">
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
+
+			<input type="submit" value="Book Now">
+			<span id="success"></span>
+		</form>
+		<h3><a href="tel:7074757878">Call us on - 7074757878</a></h3>
+
+		<script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbxmciUQuLos7uEPK8R9dxL7BNcdvcDUW3x7RhFFWVn0RCkHEZn0TJIz-DEKkSs0GxLu/exec'
+			const form = document.forms['submit-to-google-sheet']
+		    const success = document.getElementById('success');
+			form.addEventListener('submit', e => {
+			  e.preventDefault()
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => {
+                 success.innerHTML="Data successfully submit";
+
+				 setTimeout(function()
+				 {
+					success.innerHTML="";
+				 },5000)
+				 form.reset();
+				})
+				.catch(error => console.error('Error!', error.message))
+			})
+		  </script>
+
+	</div>
+	
+</body>
+</html>
